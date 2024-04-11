@@ -158,7 +158,7 @@ footer {
     grid-template-areas: "eth eth " "alphabet alphabet" "traveler traveler" "cube astro" "insta insta" "cup cup" "foam foam" "dimensional dimensional";
     margin: 4rem auto;
   }
-  .mobileNavDisplay {
+  .mobileNav {
     z-index: 1;
     width: 80px;
     background-color: #fff;
@@ -169,17 +169,24 @@ footer {
     align-items: center;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -6rem;
+    padding: 1.2rem;
+    transition: transform 0.3s;
   }
-  .mobileNavDisplay .mobileNavContainer {
+  .mobileNav .mobileNavContainer {
     height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
-  .mobileNavDisplay .mobileNavContainer .navbar-icon-container {
+  .mobileNav .mobileNavContainer .navbar-icon-container {
     height: 1rem;
+    padding: 1rem;
+  }
+  .mobileNavDisplay {
+    transform: translateX(-6rem);
+    transition: all 0.3s ease;
   }
   .overlay {
     font-size: 1.5rem;
