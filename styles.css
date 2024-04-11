@@ -1,5 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
@@ -50,6 +52,10 @@ body {
   width: 100%;
 }
 .navbar .hamburger {
+  display: none;
+}
+
+.mobileNav {
   display: none;
 }
 
@@ -150,7 +156,30 @@ footer {
 @media only screen and (max-width: 768px) {
   main {
     grid-template-areas: "eth eth " "alphabet alphabet" "traveler traveler" "cube astro" "insta insta" "cup cup" "foam foam" "dimensional dimensional";
-    margin: 2.5rem auto;
+    margin: 4rem auto;
+  }
+  .mobileNavDisplay {
+    z-index: 1;
+    width: 80px;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  .mobileNavDisplay .mobileNavContainer {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobileNavDisplay .mobileNavContainer .navbar-icon-container {
+    height: 1rem;
   }
   .overlay {
     font-size: 1.5rem;
@@ -165,16 +194,18 @@ footer {
     background-color: #fff;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 2.5rem;
+    padding: 0 2.2rem;
   }
   .navbar .artist-contact {
     display: none;
   }
   .navbar .hamburger {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   .navbar .hamburger .bar {
     background-color: #000;
@@ -182,5 +213,48 @@ footer {
     width: 36px;
     margin: 3px;
     border-radius: 10px;
+  }
+  .navbar .hamburger .animatedBar1 {
+    animation: flipBar1 1s;
+    animation-fill-mode: forwards;
+  }
+  .navbar .hamburger .animatedBar2 {
+    animation: fadeBar2 1s;
+    animation-fill-mode: forwards;
+  }
+  .navbar .hamburger .animatedBar3 {
+    animation: flipBar3 1s;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes flipBar1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg) translate(4px, 10px);
+  }
+}
+@keyframes moveBar1 {
+  from {
+    transform: translateY(5px);
+  }
+}
+@keyframes flipBar3 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg) translate(4px, -10px);
+  }
+}
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
   }
 }/*# sourceMappingURL=styles.css.map */

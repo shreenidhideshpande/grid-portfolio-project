@@ -1,7 +1,9 @@
 body {
   //   padding: 1rem;
   //   padding-top: 1.5rem;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
 }
 .container {
   max-width: 90%;
@@ -56,17 +58,21 @@ body {
     display: none;
   }
 }
+
+.mobileNav {
+  display: none;
+}
 main {
   display: grid;
   gap: 0.5rem;
   grid-template-areas:
-    "eth eth alphabet"
-    "eth eth traveler"
-    "cube astro traveler"
-    "cup insta insta"
-    "cup insta insta"
-    "foam foam dimensional"
-    "foam foam dimensional";
+    'eth eth alphabet'
+    'eth eth traveler'
+    'cube astro traveler'
+    'cup insta insta'
+    'cup insta insta'
+    'foam foam dimensional'
+    'foam foam dimensional';
   width: 100%;
   //   max-width: 90%;
   //   margin: 0 auto;
@@ -140,12 +146,12 @@ footer {
     // max-width: 90%;
     // padding: 0 0.5rem;
     grid-template-areas:
-      "eth eth "
-      "alphabet traveler"
-      "cube astro "
-      "insta insta"
-      "cup foam"
-      "dimensional dimensional";
+      'eth eth '
+      'alphabet traveler'
+      'cube astro '
+      'insta insta'
+      'cup foam'
+      'dimensional dimensional';
   }
   .overlay {
     font-size: 1.75rem;
@@ -158,16 +164,40 @@ footer {
   main {
     // max-width: 9cap;
     grid-template-areas:
-      "eth eth "
-      "alphabet alphabet"
-      "traveler traveler"
-      "cube astro"
-      "insta insta"
-      "cup cup"
-      "foam foam"
-      "dimensional dimensional";
-    margin: 2.5rem auto;
+      'eth eth '
+      'alphabet alphabet'
+      'traveler traveler'
+      'cube astro'
+      'insta insta'
+      'cup cup'
+      'foam foam'
+      'dimensional dimensional';
+    margin: 4rem auto;
   }
+  .mobileNavDisplay {
+    z-index: 1;
+    width: 80px;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    .mobileNavContainer {
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .navbar-icon-container {
+        height: 1rem;
+      }
+    }
+  }
+
   .overlay {
     font-size: 1.5rem;
   }
@@ -181,15 +211,17 @@ footer {
     background-color: #fff;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 2.5rem;
+    padding: 0 2.2rem;
     .artist-contact {
       display: none;
     }
     .hamburger {
+      z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       .bar {
         background-color: #000;
         height: 4px;
@@ -197,6 +229,51 @@ footer {
         margin: 3px;
         border-radius: 10px;
       }
+      .animatedBar1 {
+        animation: flipBar1 1s;
+        animation-fill-mode: forwards;
+      }
+      .animatedBar2 {
+        animation: fadeBar2 1s;
+        animation-fill-mode: forwards;
+      }
+      .animatedBar3 {
+        animation: flipBar3 1s;
+        animation-fill-mode: forwards;
+      }
     }
+  }
+}
+
+@keyframes flipBar1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg) translate(4px, 10px);
+  }
+}
+@keyframes moveBar1 {
+  from {
+    transform: translateY(5px);
+  }
+}
+@keyframes flipBar3 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg) translate(4px, -10px);
+  }
+}
+
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
   }
 }
